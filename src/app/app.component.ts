@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { HelloWorldService } from './hello-world.service';
+
 
 @Component({
   selector: 'app-root',
@@ -8,6 +10,16 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+
+
+
 export class AppComponent {
-  title = 'servive-app';
+  
+  private helloWorldService = inject(HelloWorldService);
+
+ 
+  onClick() {
+    console.log(this.helloWorldService.getHelloWorld());
+  }
+
 }
